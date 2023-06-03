@@ -1,0 +1,400 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import "https://site-assets.fontawesome.com/releases/v6.0.0/css/all.css";
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    &::before {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    &::after {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+:root {
+    --primary-clr: $primary-clr;
+    --primary-nd: $primary-nd;
+    --secondary-clr: #f1f5fe;
+    --text-clr: $text-clr;
+    --bg-clr: $bg-clr;
+}
+
+body {
+    scroll-behavior: smooth;
+    font-family: "Roboto", sans-serif;
+}
+
+.gtc-12 {
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.gtc-2-1 {
+    grid-template-columns: 2fr 1fr;
+}
+
+.gtc-r-2-1 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gtc-r-3-1 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.gtc-r-2-2-1 {
+    grid-template-columns: repeat(2, 2fr) 1fr;
+}
+
+.gtc-1-2 {
+    grid-template-columns: 1fr 2fr;
+}
+
+.gtc-2-2 {
+    grid-template-columns: 2fr 2fr;
+}
+
+.gtc-1 {
+    grid-template-columns: 1fr;
+}
+
+.gtc-24-06 {
+    grid-template-columns: 2.4fr 0.6fr;
+}
+
+.gc-1-4 {
+    grid-column: 1 / 4;
+}
+
+@media only screen and (max-width: 768px) {
+    .gtc-2-1 {
+        grid-template-columns: 1fr;
+    }
+
+    .gtc-1-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .gtc-24-06 {
+        grid-template-columns: 1fr;
+    }
+
+    .gtc-r-2-1 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .gtc-2-2 {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .gtc-r-3-1 {
+        grid-template-columns: 1fr;
+    }
+
+    .gtc-r-2-2-1 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 15px;
+}
+.scaleX--1 {
+    transform: scaleX(-1);
+}
+
+/* xs ekranlar (mobil) */
+@media (max-width: 575.98px) {
+    .col-sm-1 {
+        grid-column: span 1;
+    }
+
+    .col-sm-2 {
+        grid-column: span 2;
+    }
+
+    .col-sm-3 {
+        grid-column: span 3;
+    }
+
+    .col-sm-4 {
+        grid-column: span 4;
+    }
+
+    .col-sm-5 {
+        grid-column: span 5;
+    }
+
+    .col-sm-6 {
+        grid-column: span 6;
+    }
+
+    .col-sm-7 {
+        grid-column: span 7;
+    }
+
+    .col-sm-8 {
+        grid-column: span 8;
+    }
+
+    .col-sm-9 {
+        grid-column: span 9;
+    }
+
+    .col-sm-10 {
+        grid-column: span 10;
+    }
+
+    .col-sm-11 {
+        grid-column: span 11;
+    }
+
+    .col-sm-12 {
+        grid-column: span 12;
+    }
+}
+
+/* sm ekranlar (tablet) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .col-sm-1 {
+        grid-column: span 1;
+    }
+
+    .col-sm-2 {
+        grid-column: span 2;
+    }
+
+    .col-sm-3 {
+        grid-column: span 3;
+    }
+
+    .col-sm-4 {
+        grid-column: span 4;
+    }
+
+    .col-sm-5 {
+        grid-column: span 5;
+    }
+
+    .col-sm-6 {
+        grid-column: span 6;
+    }
+
+    .col-sm-7 {
+        grid-column: span 7;
+    }
+
+    .col-sm-8 {
+        grid-column: span 8;
+    }
+
+    .col-sm-9 {
+        grid-column: span 9;
+    }
+
+    .col-sm-10 {
+        grid-column: span 10;
+    }
+
+    .col-sm-11 {
+        grid-column: span 11;
+    }
+
+    .col-sm-12 {
+        grid-column: span 12;
+    }
+}
+
+/* md ekranlar (laptop) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .col-md-1 {
+        grid-column: span 1;
+    }
+
+    .col-md-2 {
+        grid-column: span 2;
+    }
+
+    .col-md-3 {
+        grid-column: span 3;
+    }
+
+    .col-md-4 {
+        grid-column: span 4;
+    }
+
+    .col-md-5 {
+        grid-column: span 5;
+    }
+
+    .col-md-6 {
+        grid-column: span 6;
+    }
+
+    .col-md-7 {
+        grid-column: span 7;
+    }
+
+    .col-md-8 {
+        grid-column: span 8;
+    }
+
+    .col-md-9 {
+        grid-column: span 9;
+    }
+
+    .col-md-10 {
+        grid-column: span 10;
+    }
+
+    .col-md-11 {
+        grid-column: span 11;
+    }
+
+    .col-md-12 {
+        grid-column: span 12;
+    }
+}
+
+/* lg ekranlar (desktop) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .col-lg-1 {
+        grid-column: span 1;
+    }
+    
+    .col-lg-2 {
+        grid-column: span 2;
+    }
+    
+    .col-lg-3 {
+        grid-column: span 3;
+    }
+    
+    .col-lg-4 {
+        grid-column: span 4;
+    }
+    
+    .col-lg-5 {
+        grid-column: span 5;
+    }
+    
+    .col-lg-6 {
+        grid-column: span 6;
+    }
+    
+    .col-lg-7 {
+        grid-column: span 7;
+    }
+    
+    .col-lg-8 {
+        grid-column: span 8;
+    }
+    
+    .col-lg-9 {
+        grid-column: span 9;
+    }
+    
+    .col-lg-10 {
+        grid-column: span 10;
+    }
+    
+    .col-lg-11 {
+        grid-column: span 11;
+    }
+    
+    .col-lg-12 {
+        grid-column: span 12;
+    }
+}
+
+/* xl ekranlar (büyük desktop) */
+@media (min-width: 1200px) {
+
+    .col-xl-1 {
+        grid-column: span 1;
+    }
+    
+    .col-xl-2 {
+        grid-column: span 2;
+    }
+    
+    .col-xl-3 {
+        grid-column: span 3;
+    }
+    
+    .col-xl-4 {
+        grid-column: span 4;
+    }
+    
+    .col-xl-5 {
+        grid-column: span 5;
+    }
+    
+    .col-xl-6 {
+        grid-column: span 6;
+    }
+    
+    .col-xl-7 {
+        grid-column: span 7;
+    }
+    
+    .col-xl-8 {
+        grid-column: span 8;
+    }
+    
+    .col-xl-9 {
+        grid-column: span 9;
+    }
+    
+    .col-xl-10 {
+        grid-column: span 10;
+    }
+    
+    .col-xl-11 {
+        grid-column: span 11;
+    }
+    
+    .col-xl-12 {
+        grid-column: span 12;
+    }
+}
