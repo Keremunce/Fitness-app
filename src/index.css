@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,9 +10,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-*, *::after, *::before {
+
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
+
 .App {
   background-color: #F1F1F1;
 }
+.programCard{
+  background-color: #fff;
+  border-radius: .5rem;
+  padding: 1rem;
+  position: relative;
+}
+/* .programCard .imgDiv {
+  position: absolute;
+  inset: 0 ;
+}
+.programCard .imgDiv img {
+  width: 100%;
+  height: 100%;
+} */

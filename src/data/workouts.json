@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Chest & Triceps Day",
+        "image": "/images/chestntriceps.jpg",
+        "duration": "30 minutes",
+        "day": "monday"
+    },
+    {
+        "name": "Back & Biceps Day",
+        "image": "/images/backnbiceps.jpg",
+        "duration": "45 minutes",
+        "day": "tuesday"
+    },
+    {
+        "name": "Shoulder & Abs Day",
+        "image": "/images/shouldernabs.jpg",
+        "duration": "60 minutes",
+        "day": "thursday"
+    },
+    {
+        "name": "Leg Day",
+        "image": "/images/leg.jpg",
+        "duration": "60 minutes",
+        "day": "friday"
+    }
+]

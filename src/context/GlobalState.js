@@ -8,12 +8,14 @@ export const GlobalProvider = (props) => {
     const [date, setDate] = useState([]);
     const [today, setToday] = useState(new Date());
 
+
     useEffect(() => {
         const timer = setInterval(() => {
             setToday(new Date());
         }, 1000 * 60 * 60 * 24);
-        return () => clearInterval(timer); 
+        return () => clearInterval(timer);
     }, []);
+
 
     const allData = {
         workouts, setWorkouts, date, setDate, today
