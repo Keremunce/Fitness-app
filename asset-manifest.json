@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Fitness-app/static/css/main.9e86fdcb.css",
-    "main.js": "/Fitness-app/static/js/main.018f9f27.js",
+    "main.js": "/Fitness-app/static/js/main.fd6d8874.js",
     "index.html": "/Fitness-app/index.html",
     "main.9e86fdcb.css.map": "/Fitness-app/static/css/main.9e86fdcb.css.map",
-    "main.018f9f27.js.map": "/Fitness-app/static/js/main.018f9f27.js.map"
+    "main.fd6d8874.js.map": "/Fitness-app/static/js/main.fd6d8874.js.map"
   },
   "entrypoints": [
     "static/css/main.9e86fdcb.css",
-    "static/js/main.018f9f27.js"
+    "static/js/main.fd6d8874.js"
   ]
 }
