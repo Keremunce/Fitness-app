@@ -20,17 +20,65 @@ body {
 .App {
   background-color: #F1F1F1;
 }
+.container{
+  max-width: 1200px;
+}
 .programCard{
   background-color: #fff;
   border-radius: .5rem;
-  padding: 1rem;
   position: relative;
 }
-/* .programCard .imgDiv {
+.programCard::after {
+  content: '';
   position: absolute;
-  inset: 0 ;
+  inset: 0;
+  border-radius: .5rem;
+  background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 50%);
+}
+.programCard .textContent {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  bottom: 8%;
+  left: 3%;
+  display: inline-block;
+  gap: 10px;
+}
+.programCard .textContent p:first-child {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.programCard .textContent p:last-child {
+  font-size: .8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, .7 );
 }
 .programCard .imgDiv img {
   width: 100%;
-  height: 100%;
-} */
+  border-radius: .5rem;
+}
+
+
+/* Other Programs */
+.programsContainer{
+  width: 100%;
+  overflow: hidden;
+}
+.programsContainer .slider {
+  display: flex;
+  transition: transform .5s ease;
+  overflow-x: auto;
+  gap: 15px;
+}
+.programsContainer .slider > .createNewProgram {
+  flex: 0 0 25%;
+  @apply bg-orange-500;
+  border-radius: .5rem;
+  color: #fff;
+  display: grid;
+  place-content: center;
+  font-size: 3rem;
+}
+.programsContainer .slider .programCard {
+  flex: 0 0 60%;
+}
