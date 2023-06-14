@@ -7,6 +7,7 @@ export const GlobalProvider = (props) => {
     const [workouts, setWorkouts] = useState([]);
     const [date, setDate] = useState([]);
     const [today, setToday] = useState(new Date());
+    const [selectedItem, setSelectedItem] = useState(null);
 
 
     useEffect(() => {
@@ -18,7 +19,7 @@ export const GlobalProvider = (props) => {
 
 
     const allData = {
-        workouts, setWorkouts, date, setDate, today
+        workouts, setWorkouts, date, setDate, today, selectedItem, setSelectedItem
     };
 
     return (

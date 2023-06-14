@@ -16,69 +16,266 @@ body {
 *::before {
   box-sizing: border-box;
 }
+:root {
+  --orange-500: rgb(249 115 22);
+  --orange-600: rgb(234 88 12);
+  --text-secondary: #75767D;
+  --text-primary: #232332;
+  --border-md : .5rem;
+  --border-sm : .25rem;
 
+}
 .App {
-  background-color: #F1F1F1;
+  background-color: #F7F7F7;
+  position: relative;
+  padding: 1rem;
 }
 .container{
   max-width: 1200px;
 }
-.programCard{
-  background-color: #fff;
-  border-radius: .5rem;
-  position: relative;
-}
-.programCard::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: .5rem;
-  background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 50%);
-}
-.programCard .textContent {
-  position: absolute;
-  z-index: 1;
-  color: white;
-  bottom: 8%;
-  left: 3%;
-  display: inline-block;
-  gap: 10px;
-}
-.programCard .textContent p:first-child {
-  font-size: 1rem;
-  font-weight: 700;
-}
-.programCard .textContent p:last-child {
-  font-size: .8rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, .7 );
-}
-.programCard .imgDiv img {
-  width: 100%;
-  border-radius: .5rem;
-}
-
 
 /* Other Programs */
-.programsContainer{
+.otherProgramsContainer{
   width: 100%;
   overflow: hidden;
 }
-.programsContainer .slider {
+.otherProgramsContainer .slider {
   display: flex;
   transition: transform .5s ease;
   overflow-x: auto;
   gap: 15px;
 }
-.programsContainer .slider > .createNewProgram {
+.otherProgramsContainer .slider > .createNewProgram {
   flex: 0 0 25%;
   @apply bg-orange-500;
-  border-radius: .5rem;
+  border-radius: var(--border-md);
   color: #fff;
   display: grid;
-  place-content: center;
+  gap: 10px;
+  place-items: center;
   font-size: 3rem;
+  text-align: center;
+  padding: 20px;
 }
-.programsContainer .slider .programCard {
+.otherProgramsContainer .slider > .createNewProgram p{
+  font-size: 1rem;
+}
+.otherProgramsContainer .slider > .card {
   flex: 0 0 60%;
+  display: flex;
+  border-radius: var(--border-md);
+  padding: 5px;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
 }
+
+.otherProgramsContainer .slider > .card img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+.otherProgramsContainer .slider > .card img:first-child {
+  border-radius: 5px 0px 0px 5px;
+}
+.otherProgramsContainer .slider > .card img:last-child {
+  border-radius: 0px 5px 5px 0px;
+}
+.otherProgramsContainer .slider > .card .image-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+.otherProgramsContainer .slider > .card .image-container::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 5px;
+  background-color: #fff;
+}
+.otherProgramsContainer .slider > .card .image-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 5px;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5)) ;
+}
+.otherProgramsContainer .slider > .card .content {
+  position: absolute;
+  bottom: 10%;
+  left: 8%;
+  color: #fff;
+  z-index: 1;
+}
+.otherProgramsContainer .slider > .card .content p:first-child {
+  font-weight: bold;
+}
+
+/* CALENDAR */
+.calendar-container {
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  gap: 10px;
+}
+.calendar-wrapper span{ 
+  width: 10px;
+  height: 10px;
+  border-radius: 100px;
+}
+.calendar-wrapper > div {
+  flex: 1;
+  text-align: center;
+  padding: 10px 15px;
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  border-radius: var(--border-md);
+  background-color: #fff;
+  border: 2px solid transparent;
+}
+.calendar-wrapper > div.today {
+  border: 2px solid var(--orange-500);
+}
+
+/* ######################################################################################################################## */
+/* ProgramCard */
+.programCard-container{
+  display: grid;
+  gap: 10px;
+}
+.programCard-container .programCard{
+  display: flex;
+  gap: 10px;
+}
+/* ==================================================================================== */
+/* Muscle Parts Start */
+.programCard-container .programCard .muscleParts-container{
+  background-color:var(--orange-500);
+  flex: .35;
+  padding: 10px;
+  border-radius: var(--border-md);
+  display: grid;
+  gap: 10px;
+}
+.programCard-container .programCard .muscleParts-container .muscleParts{
+  background-color: #fff;
+  border-radius: var(--border-md);
+  padding: 10px;
+}
+.programCard-container .programCard .muscleParts-container .calories{
+  color: #fff;
+  text-align: center;
+}
+.programCard-container .programCard .muscleParts-container .calories p:first-child{
+  font-size: large;
+  font-weight: bold;
+}
+.programCard-container .programCard .muscleParts-container .calories p:last-child{
+  font-size: .8rem;
+  color: #FEE3D0;
+}
+/* Muscle Parts END */
+/* ==================================================================================== */
+
+/* ==================================================================================== */
+/* Workout Info Start */
+.programCard-container .programCard .workoutInfo{
+  background-color: #fff;
+  border-radius: var(--border-md);
+  flex: .65;
+  padding: 1rem;
+  display: grid;
+  gap: 10px;
+}
+.programCard-container .programCard .workoutInfo .workoutInfo-element{
+  display: grid;
+  grid-template-columns: 5px 1fr 1fr;
+  gap: 10px;
+}
+.programCard-container .programCard .workoutInfo .workoutInfo-element .color{
+  height: 100%;
+  width:  5px;
+  border-radius: 100px;
+  /* @apply bg-green-500; */
+}
+.programCard-container .programCard .workoutInfo .workoutInfo-element .textContent{
+  text-align: left;
+  color: var(--text-primary);
+}
+.programCard-container .programCard .workoutInfo .workoutInfo-element .textContent p:first-child{
+  font-size: 1rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 120px;
+  text-overflow: ellipsis;
+}
+.programCard-container .programCard .workoutInfo .workoutInfo-element .textContent p:last-child{
+  font-size: .8rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 120px;
+  text-overflow: ellipsis;
+}
+.programCard-container .programCard .workoutInfo .workoutInfo-element .repSet p{
+  font-size: 1rem;
+  font-weight: bold;
+}
+.programCard-container .programCard .workoutInfo .workoutInfo-element .repSet p > span{
+  font-size: .8rem;
+  color: var(--text-secondary);
+  font-weight: normal;
+}
+/* Workout Info End */
+/* ==================================================================================== */
+.programCard-container .startWorkoutBtn{
+  background-color: var(--orange-500);
+  color: #fff;
+  padding: .35rem 0;
+  width: 100%;
+  border-radius: 100px;
+  font-weight: bold;
+}
+/* ### ProgramCard END ### */
+/* ######################################################################################################################## */
+/* ######################################################################################################################## */
+/* ### Tabbar Start ### */
+
+.tabbar-container{
+  position: sticky;
+  z-index: 100;
+  bottom: 0;
+  border-radius: 100px;
+  display: flex;
+  background-color: var(--text-primary);
+  padding: .5rem;
+  box-shadow: 0px 0px 10px rgba(0,0,0,.1);
+}
+.tabbar-container > div {
+  flex:1;
+  text-align: center;
+  padding: .3rem 0;
+}
+.tabbar-container button {
+  color: #fff;
+  font-size: 1.3rem;
+}
+.tabbar-container #divider{
+  position: absolute;
+  border-radius: 200px;
+  top: var(--divider-top);
+  left: var(--divider-left);
+  height: var(--divider-height);
+  width: var(--divider-width);
+  z-index: -1;
+  background-color: var(--orange-500);
+  will-change: transform;
+  transition: .5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* ### Tabbar END ### */
+/* ######################################################################################################################## */

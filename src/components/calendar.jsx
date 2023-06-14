@@ -35,22 +35,21 @@ function Calendar(){
     }, [today, setDate]);
     
     return (
-        <>
-            <div className="flex gap-3 overflow-x-auto">
+        <div className='calendar-container'>
+            <p className='font-bold tracking-widest'>SCHEDULE</p>
+            <div className="calendar-wrapper flex gap-3 overflow-x-auto">
                 {date.map((date, index) => {
                     return (
-                        <div ref={date.getDay() === today.getDay() ? activeDayRef : null} key={index} className={`${date.getDay() === today.getDay() ? 'bg-orange-500 text-white' : 'bg-white'} flex-1 text-center py-3 px-4  grid gap-2 rounded-md`}>
+                        <div ref={date.getDay() === today.getDay() ? activeDayRef : null} key={index} className={`${date.getDay() === today.getDay() ? 'today' : ''}`}>
                             <p>
                                 {date.toLocaleString('en-US', {weekday: 'short', timeZone: 'Europe/Istanbul'})}
                             </p>
-                            <p>
-                                {date.toLocaleString('en-US', {day: 'numeric'})}
-                            </p>
+                            <span className={`${date.getDay() === today.getDay() ? 'bg-orange-500' : 'bg-gray-200'}`}></span>
                         </div>
                     );
                 })}
             </div>
-        </>
+        </div>
     )
 }
 

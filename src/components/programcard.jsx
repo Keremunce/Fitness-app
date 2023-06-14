@@ -1,8 +1,6 @@
 import React from 'react';
 
 const ProgramCard = ({ workout }) => {
-
-    console.log(workout.image);
     return (
         <div className="programCard">
             <div className="imgDiv">
