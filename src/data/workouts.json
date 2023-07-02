@@ -1,26 +1,180 @@
 [
     {
+        "type": "upper",
         "name": "Chest & Triceps Day",
+        "image1": "/images/triceps.jpg",
+        "image2": "/images/benchpress.jpg",
+        "duration": "30 minutes",
+        "day": "monday",
+        "calories": "300",
+        "muscleparts": ["chests", "triceps", "nipples"],
+        "exercies": [
+            {
+                "name": "Barbell Bench Press",
+                "rep": "12",
+                "set": "4",
+                "target": "Pecs, Front Delts, Triceps",
+                "color": "bg-red-500"
+            },
+            {
+                "name": "Incline Dumbell Bench Press",
+                "rep": "12",
+                "set": "4",
+                "target": "Pecs, Front Delts, Triceps",
+                "color": "bg-orange-500"
+            },
+            {
+                "name": "Cable Crossover",
+                "rep": "12",
+                "set": "4",
+                "target": "Pecs, Front Delts, Triceps",
+                "color": "bg-amber-500"
+            }
+        ]
+    },
+    {
+        "type": "upper",
+        "name": "Back & Biceps Day",
         "image": "/images/chestntriceps.jpg",
         "duration": "30 minutes",
-        "day": "monday"
+        "day": "tuesday",
+        "calories": "400",
+        "muscleparts": ["back", "biceps", "traps"],
+        "exercies": [
+            {
+                "name": "Seated Cable Rows",
+                "rep": "12",
+                "set": "4",
+                "target": "Latis, Rhomboids , Trapezius, Biceps Brachii",
+                "color": "bg-red-500"
+            },
+            {
+                "name": "Bent Over Rows",
+                "rep": "12",
+                "set": "4",
+                "target": "Latis, Rhomboids , Trapezius, Biceps Brachii",
+                "color": "bg-orange-500"
+            },
+            {
+                "name": "Lat Pulldown",
+                "rep": "12",
+                "set": "4",
+                "target": "Latis, Rhomboids , Trapezius, Biceps Brachii",
+                "color": "bg-amber-500"
+            },
+            {
+                "name": "Barbell Curl",
+                "rep": "12",
+                "set": "4",
+                "target": "Biceps",
+                "color": "bg-yellow-500"
+            },
+            {
+                "name": "Hammer Curl",
+                "rep": "12",
+                "set": "4",
+                "target": "Biceps Long Head",
+                "color": "bg-lime-500"
+            },
+            {
+                "name": "Dumbell Shrug",
+                "rep": "12",
+                "set": "4",
+                "target": "Traps",
+                "color": "bg-green-500"
+            }
+        ]
     },
     {
-        "name": "Back & Biceps Day",
-        "image": "/images/backnbiceps.jpg",
-        "duration": "45 minutes",
-        "day": "tuesday"
-    },
-    {
+        "type": "upper",
         "name": "Shoulder & Abs Day",
         "image": "/images/shouldernabs.jpg",
-        "duration": "60 minutes",
-        "day": "thursday"
+        "duration": "30 minutes",
+        "day": "tuesday",
+        "calories": "400",
+        "muscleparts": ["shoulders", "abs-back", "abs-line"],
+        "exercies": [
+            {
+                "name": "Dumbell Shoulder Press",
+                "rep": "12",
+                "set": "4",
+                "target": "Front Delts",
+                "color": "bg-red-500"
+            },
+            {
+                "name": "Lateral Raises",
+                "rep": "12",
+                "set": "4",
+                "target": "Lateral Head",
+                "color": "bg-orange-500"
+            },
+            {
+                "name": "Facepulls",
+                "rep": "12",
+                "set": "4",
+                "target": "Rear Deltoid",
+                "color": "bg-amber-500"
+            },
+            {
+                "name": "Crunches",
+                "rep": "12",
+                "set": "4",
+                "target": "Abs",
+                "color": "bg-yellow-500"
+            },
+            {
+                "name": "Leg Raises",
+                "rep": "12",
+                "set": "4",
+                "target": "Abs",
+                "color": "bg-lime-500"
+            },
+            {
+                "name": "Russian Twist",
+                "rep": "12",
+                "set": "4",
+                "target": "Abliques",
+                "color": "bg-green-500"
+            }
+        ]
     },
     {
+        "type": "lower",
         "name": "Leg Day",
-        "image": "/images/leg.jpg",
-        "duration": "60 minutes",
-        "day": "friday"
+        "image": "/images/shouldernabs.jpg",
+        "duration": "61 minutes",
+        "day": "friday",
+        "calories": "1200",
+        "muscleparts": ["quads", "calfs", "hamstrings"],
+        "exercies": [
+            {
+                "name": "Leg Press",
+                "rep": "12",
+                "set": "4",
+                "target": "Quads, Triceps, Lateral Deltoid",
+                "color": "bg-rose-500"
+            },
+            {
+                "name": "Romanian Deadlift",
+                "rep": "12",
+                "set": "4",
+                "target": "Hamstrings",
+                "color": "bg-orange-500"
+            },
+            {
+                "name": "Calf Raises",
+                "rep": "12",
+                "set": "4",
+                "target": "Calf",
+                "color": "bg-green-500"
+            },
+            {
+                "name": "Lunges",
+                "rep": "12",
+                "set": "4",
+                "target": "Quads, Hamstrings, Glutes",
+                "color": "bg-sky-500"
+            }
+        ]
     }
 ]

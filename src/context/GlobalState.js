@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useRef } from "react";
 
 export const GlobalContext = createContext();
 
@@ -8,6 +8,18 @@ export const GlobalProvider = (props) => {
     const [date, setDate] = useState([]);
     const [today, setToday] = useState(new Date());
     const [selectedItem, setSelectedItem] = useState(null);
+    const [showNewProgramScreen, setshowNewProgramScreen] = useState(false);
+    const [workoutDuration, setWorkoutDuration] = useState(true);
+    const [workoutDays, setWorkoutDays] = useState('');
+    const [workoutDaysPH, setWorkoutDaysPH] = useState(true);
+    const [selectedDayIndex, setSelectedDayIndex] = useState(0);
+    const [showProgramScreen, setShowProgramScreen] = useState(false);
+    const [showExercisePickScreen, setshowExercisePickScreen] = useState(false);
+    const workoutSearchInputRef = useRef(null);
+
+    // Search fonksiyonu
+    const [exerciseData, setExerciseData] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
 
     useEffect(() => {
@@ -19,7 +31,17 @@ export const GlobalProvider = (props) => {
 
 
     const allData = {
-        workouts, setWorkouts, date, setDate, today, selectedItem, setSelectedItem
+        workouts, setWorkouts, date, setDate, today, selectedItem, setSelectedItem,
+        showNewProgramScreen, setshowNewProgramScreen,
+        workoutDuration, setWorkoutDuration,
+        workoutDays, setWorkoutDays,
+        workoutDaysPH, setWorkoutDaysPH,
+        selectedDayIndex, setSelectedDayIndex,
+        showProgramScreen, setShowProgramScreen,
+        showExercisePickScreen, setshowExercisePickScreen,
+        workoutSearchInputRef,
+        exerciseData, setExerciseData,
+        searchTerm, setSearchTerm
     };
 
     return (

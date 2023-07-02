@@ -1,0 +1,156 @@
+/* ######################################################################################################################## */
+/* ### NewProgramScreen START ### */
+.NewProgramScreen {
+    display: grid;
+    gap: 20px;
+}
+
+.NewProgramScreen .header {
+    position: sticky;
+    top: 0;
+    background-color: #f7f7f7;
+    border: 1px solid #B2B2B2;
+    z-index: 5;
+    padding: 0 .5rem;
+    border-radius: 0 0 .25rem .25rem;
+}
+
+.NewProgramScreen .header button {
+    font-size: 1.5rem;
+}
+
+.NewProgramScreen .body form {
+    display: grid;
+    gap: 15px;
+}
+
+/* ==================================================================================== */
+/* ImagePicker Start */
+.imagePicker {
+    width: 100%;
+    overflow: hidden;
+    display: grid;
+    gap: 5px;
+}
+
+.imagePicker .title {
+    font-size: .8rem;
+}
+
+.imagePicker .slider {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.imagePicker .slider .item {
+    flex: 0 0 40%;
+    overflow: hidden;
+    border-radius: .15rem;
+    aspect-ratio: 1.5 / 1;
+}
+
+.imagePicker .slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ImagePicker END */
+/* ==================================================================================== */
+/* ==================================================================================== */
+/* Input-Group START */
+.NewProgramScreen .body .input-group {
+    position: relative;
+}
+
+.NewProgramScreen .body .input-group input {
+    display: block;
+    width: 100%;
+    border-radius: .25rem;
+    border-color: transparent;
+    padding: 1rem;
+    color: var(--gray-900);
+    margin-top: 10px;
+    border: 1px solid rgb(226 232 240);
+}
+
+.NewProgramScreen .body .input-group input:focus {
+    box-shadow: 0 0 0 2px var(--orange-600);
+}
+
+
+.NewProgramScreen .body .input-group.select select {
+    width: 100%;
+    padding: 1rem;
+    border-radius: .25rem;
+    border: 1px solid rgb(226 232 240);
+}
+
+.NewProgramScreen .body .input-group.select label {
+    position: absolute;
+    background-color: #fff;
+    color: #9ca3af;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+}
+
+.NewProgramScreen .body .input-group.select select {
+    width: 100%;
+    padding: 1rem;
+    border-radius: .25rem;
+    border: 1px solid var(--slate-200);
+}
+
+.NewProgramScreen .body .input-group.select label {
+    position: absolute;
+    background-color: #fff;
+    color: #9ca3af;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+}
+
+.NewProgramScreen .body .workoutDaysSection>div {
+    display: grid;
+    gap: 10px;
+}
+
+.NewProgramScreen .body .workoutDaysSection .workoutDayElement {
+    background-color: #fff;
+    padding: 1rem;
+    border-top: 1px solid;
+    border-color: var(--slate-200);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    will-change: transform;
+    transition: .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.NewProgramScreen .body .workoutDaysSection .workoutDayElement:active {
+    transform: scale(.97);
+    background-color: #f7f7f7;
+}
+
+.NewProgramScreen .body .planBtn {
+    background-color: #242424;
+    /* background-color: var(--orange-500); */
+    color: #fff;
+    padding: 1rem;
+    font-weight: bold;
+    border-radius: .25rem;
+    will-change: transform;
+    transition: .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.NewProgramScreen .body .planBtn:active {
+    background-color: #333;
+    transform: scale(.97);
+}
+
+/* Input-Group END */
+/* ==================================================================================== */
+/* ### NewProgramScreen End ### */
+/* ######################################################################################################################## */

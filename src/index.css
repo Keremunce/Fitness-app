@@ -1,10 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import 'assets/css/newProgramScreen.css';
+@import 'assets/css/ExercisePickScreen.css';
+@import 'assets/css/ProgramScreen.css';
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -rgb(255 237 213)e-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -17,12 +19,27 @@ body {
   box-sizing: border-box;
 }
 :root {
+  --orange-100: rgb(255 237 213);
+  --orange-200: rgb(254 215 170);
+  --orange-300: rgb(253 186 116);
+  --orange-400: rgb(251 146 60);
   --orange-500: rgb(249 115 22);
   --orange-600: rgb(234 88 12);
+  --gray-100: rgb(243 244 246);
+  --gray-200: rgb(229 231 235);
+  --gray-300:  rgb(209 213 219);
+  --gray-400:  rgb(156 163 175);
+  --gray-500:  rgb(107 114 128);
+  --gray-600:  rgb(75 85 99);
+  --gray-700:  rgb(55 65 81);
+  --gray-800:  rgb(31 41 55);
+  --gray-900:  rgb(17 24 39);
+  --slate-200:  rgb(226 232 240);
   --text-secondary: #75767D;
   --text-primary: #232332;
   --border-md : .5rem;
   --border-sm : .25rem;
+  --border-xs : .15rem;
 
 }
 .App {
@@ -34,6 +51,58 @@ body {
   max-width: 1200px;
 }
 
+/* ### Basics End ### */
+/* ######################################################################################################################## */
+/* ######################################################################################################################## */
+/* ### Screen START ### */
+.screen{
+  position: relative;
+}
+@media (min-width: 768px){
+  .screen{
+    max-width: 768px;
+    margin: 0 auto;
+    /* background-color: red !important; */
+  }
+}
+.mainScreen-container{
+  display: grid;
+  gap: 20px;
+  position: relative;
+}
+/* ==================================================================================== */
+/* Header Start */
+.screen .header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.screen .header .headerCreateProgram{
+  background-color: var(--orange-500);
+  color: #fff;
+  /* padding: 10px 13px; */
+  padding: 10px 12px;
+  border-radius: var(--border-md);
+  display: flex;
+  align-items: center;
+  will-change: transform;
+  transition: .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.screen .header .headerCreateProgram:hover{
+  background-color: var(--orange-600);
+}
+.screen .header .headerCreateProgram:active{
+  transform: scale(.95);
+  box-shadow: 0 0 0 3px var(--orange-300);
+}
+.screen .header .headerCreateProgram:focus-visible{
+  box-shadow: 0 0 0 5px var(--orange-300);
+}
+.screen .header .headerCreateProgram:focus{
+  box-shadow: 0 0 0 5px var(--orange-300);
+}
+/* Header END */
+/* ==================================================================================== */
 /* Other Programs */
 .otherProgramsContainer{
   width: 100%;
@@ -47,7 +116,7 @@ body {
 }
 .otherProgramsContainer .slider > .createNewProgram {
   flex: 0 0 25%;
-  @apply bg-orange-500;
+  background-color: var(--orange-500);
   border-radius: var(--border-md);
   color: #fff;
   display: grid;
@@ -165,10 +234,14 @@ body {
   background-color: #fff;
   border-radius: var(--border-md);
   padding: 10px;
+  display: grid;
+  place-items: center;
 }
 .programCard-container .programCard .muscleParts-container .calories{
   color: #fff;
   text-align: center;
+  display: grid;
+  place-content: center;
 }
 .programCard-container .programCard .muscleParts-container .calories p:first-child{
   font-size: large;
@@ -190,17 +263,19 @@ body {
   padding: 1rem;
   display: grid;
   gap: 10px;
+  max-height: 250px;
+  overflow-y: auto;
 }
 .programCard-container .programCard .workoutInfo .workoutInfo-element{
   display: grid;
-  grid-template-columns: 5px 1fr 1fr;
+  grid-template-columns: 5px 1fr .25fr;
+  grid-template-rows: fit-content(100%);
   gap: 10px;
 }
 .programCard-container .programCard .workoutInfo .workoutInfo-element .color{
   height: 100%;
   width:  5px;
   border-radius: 100px;
-  /* @apply bg-green-500; */
 }
 .programCard-container .programCard .workoutInfo .workoutInfo-element .textContent{
   text-align: left;
@@ -219,12 +294,17 @@ body {
   color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
-  width: 120px;
+  max-width: 15ch;
   text-overflow: ellipsis;
+}
+.programCard-container .programCard .workoutInfo .workoutInfo-element .repSet{
+  display: grid;
+  place-content: center;
 }
 .programCard-container .programCard .workoutInfo .workoutInfo-element .repSet p{
   font-size: 1rem;
   font-weight: bold;
+  white-space: nowrap;
 }
 .programCard-container .programCard .workoutInfo .workoutInfo-element .repSet p > span{
   font-size: .8rem;
@@ -234,9 +314,8 @@ body {
 /* Workout Info End */
 /* ==================================================================================== */
 .programCard-container .startWorkoutBtn{
-  background-color: var(--orange-500);
   color: #fff;
-  padding: .35rem 0;
+  padding: .5rem 0;
   width: 100%;
   border-radius: 100px;
   font-weight: bold;
@@ -249,11 +328,11 @@ body {
 .tabbar-container{
   position: sticky;
   z-index: 100;
-  bottom: 0;
+  bottom: 2.5%;
   border-radius: 100px;
   display: flex;
   background-color: var(--text-primary);
-  padding: .5rem;
+  padding: 8px;
   box-shadow: 0px 0px 10px rgba(0,0,0,.1);
 }
 .tabbar-container > div {
