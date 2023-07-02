@@ -63,7 +63,7 @@ function App() {
   useEffect(() => {
     setWorkouts(workoutData);
   }); /* setWorkouts */
-
+ 
 
   useEffect(() => {
     if (todaysWorkout) {

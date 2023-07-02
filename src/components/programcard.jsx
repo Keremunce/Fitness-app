@@ -14,5 +14,5 @@ const ProgramCard = ({ workout }) => {
         </div>
     );
 };
-
+ 
 export default ProgramCard;

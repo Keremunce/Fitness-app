@@ -29,7 +29,7 @@ export const GlobalProvider = (props) => {
         return () => clearInterval(timer);
     }, []);
 
-
+ 
     const allData = {
         workouts, setWorkouts, date, setDate, today, selectedItem, setSelectedItem,
         showNewProgramScreen, setshowNewProgramScreen,

@@ -8,24 +8,12 @@ function NewProgramScreen() {
         , selectedDayIndex, setSelectedDayIndex, showProgramScreen, setShowProgramScreen, showExercisePickScreen, setshowExercisePickScreen,
         workoutSearchInputRef, exerciseData, setExerciseData, searchTerm, setSearchTerm } = useContext(GlobalContext);
 
-    const redis = require('redis');
-    const redisClient = redis.createClient();
-
-    redisClient.on('connect', () => {
-        console.log('Redis connected');
-    });
-
-    redisClient.on('error', (error) => {
-        console.error('Redis connection error:', error);
-    });
-
-
     // Kullanıcının günü seçtiğinde çağrılan fonksiyon
     const handleDaySelection = (index) => {
         setSelectedDayIndex(index + 1);
         setShowProgramScreen(true);
     };
-
+ 
     // // Kullanıcının programı hazırladıktan sonra çağrılan fonksiyon
     // const handleProgramSave = () => {
     //     // Programı kaydet ve işlemleri gerçekleştir
@@ -38,32 +26,18 @@ function NewProgramScreen() {
 
     useEffect(() => {
         const fetchExerciseData = async () => {
-            try {
-                // Önbellekte veri var mı kontrol et
-                redisClient.get('exerciseData', async (error, cachedData) => {
-                    if (error) {
-                        console.error('Redis error:', error);
-                    }
-
-                    if (cachedData) {
-                        // Önbellekten veriyi al
-                        setExerciseData(JSON.parse(cachedData));
-                    } else {
-                        // Önbellekte veri yok, API'den veriyi çek
-                        const response = await axios.get('https://exercisedb.p.rapidapi.com/exercises', {
-                            headers: {
-                                'X-RapidAPI-Key': '722895e6a7mshdd582378ce49955p1cb2c6jsnd8470e7d5adb',
-                                'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
-                            }
-                        });
-
-                        // Veriyi önbelleğe kaydet
-                        redisClient.set('exerciseData', JSON.stringify(response.data));
-
-                        setExerciseData(response.data);
+            try {                        // Önbellekte veri yok, API'den veriyi çek
+                const response = await axios.get('https://exercisedb.p.rapidapi.com/exercises', {
+                    headers: {
+                        'X-RapidAPI-Key': '722895e6a7mshdd582378ce49955p1cb2c6jsnd8470e7d5adb',
+                        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
                     }
                 });
-            } catch (error) {
+
+                // Veriyi önbelleğe kaydet
+                setExerciseData(response.data);
+            }
+            catch (error) {
                 console.error('Veri çekme hatası:', error);
             }
         };
