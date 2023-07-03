@@ -1,0 +1,34 @@
+.SetCard {
+    padding: 1rem;
+    background-color: #fff;
+    margin: 1rem 0;
+}
+
+.SetCard .setIndex {
+    font-size: .7rem;
+    margin-bottom: 10px;
+}
+
+.SetCard .setCard-inner {
+    border: 1px solid var(--gray-300);
+}
+
+.SetCard .setCard-inner .inner-row:first-child {
+    border-bottom: 1px solid var(--gray-300);
+}
+
+.SetCard .setCard-inner .inner-row .repCount{
+    display: flex;
+}
+.SetCard .setCard-inner .inner-row .restTimeCount{
+    display: flex;
+}
+.SetCard .setCard-inner .inner-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.SetCard .setCard-inner .inner-row div:first-child {
+    color: var(--gray-400);
+}

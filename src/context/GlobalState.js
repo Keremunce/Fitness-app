@@ -21,6 +21,13 @@ export const GlobalProvider = (props) => {
     const [exerciseData, setExerciseData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
 
+    // Exercise Info Screen
+    const [selectedExercise, setSelectedExercise] = useState(null);
+
+    // Set component
+    const [repCount, setRepCount] = useState(10);
+    const [restTimeCount, setRestTimeCount] = useState(30);
+    const [sets, setSets] = useState([]);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -29,7 +36,7 @@ export const GlobalProvider = (props) => {
         return () => clearInterval(timer);
     }, []);
 
- 
+
     const allData = {
         workouts, setWorkouts, date, setDate, today, selectedItem, setSelectedItem,
         showNewProgramScreen, setshowNewProgramScreen,
@@ -41,7 +48,11 @@ export const GlobalProvider = (props) => {
         showExercisePickScreen, setshowExercisePickScreen,
         workoutSearchInputRef,
         exerciseData, setExerciseData,
-        searchTerm, setSearchTerm
+        searchTerm, setSearchTerm,
+        selectedExercise, setSelectedExercise,
+        repCount, setRepCount,
+        restTimeCount, setRestTimeCount,
+        sets, setSets,
     };
 
     return (

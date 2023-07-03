@@ -2,18 +2,22 @@ import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight, faCirclePlus, faSearch } from '@fortawesome/free-solid-svg-icons';
+import Set from './set'
 import axios from 'axios';
 function NewProgramScreen() {
     const { showNewProgramScreen, setshowNewProgramScreen, workoutDuration, setWorkoutDuration, workoutDays, setWorkoutDays, workoutDaysPH, setWorkoutDaysPH
         , selectedDayIndex, setSelectedDayIndex, showProgramScreen, setShowProgramScreen, showExercisePickScreen, setshowExercisePickScreen,
-        workoutSearchInputRef, exerciseData, setExerciseData, searchTerm, setSearchTerm } = useContext(GlobalContext);
+        workoutSearchInputRef, exerciseData, setExerciseData, searchTerm, setSearchTerm, selectedExercise, setSelectedExercise,
+     setSets} = useContext(GlobalContext);
+     const addSet = () => {
+        setSets((prevSets) => [...prevSets, {}]);
+    };
 
     // Kullanıcının günü seçtiğinde çağrılan fonksiyon
     const handleDaySelection = (index) => {
         setSelectedDayIndex(index + 1);
         setShowProgramScreen(true);
     };
- 
     // // Kullanıcının programı hazırladıktan sonra çağrılan fonksiyon
     // const handleProgramSave = () => {
     //     // Programı kaydet ve işlemleri gerçekleştir
@@ -24,28 +28,22 @@ function NewProgramScreen() {
     //     setShowProgramScreen(false);
     // };\
 
-    useEffect(() => {
-        const fetchExerciseData = async () => {
-            try {                        // Önbellekte veri yok, API'den veriyi çek
-                const response = await axios.get('https://exercisedb.p.rapidapi.com/exercises', {
-                    headers: {
-                        'X-RapidAPI-Key': '722895e6a7mshdd582378ce49955p1cb2c6jsnd8470e7d5adb',
-                        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
-                    }
-                });
+    const fetchExerciseData = async () => {
+        try {                        // Önbellekte veri yok, API'den veriyi çek
+            const response = await axios.get('https://exercisedb.p.rapidapi.com/exercises', {
+                headers: {
+                    'X-RapidAPI-Key': '722895e6a7mshdd582378ce49955p1cb2c6jsnd8470e7d5adb',
+                    'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+                }
+            });
 
-                // Veriyi önbelleğe kaydet
-                setExerciseData(response.data);
-            }
-            catch (error) {
-                console.error('Veri çekme hatası:', error);
-            }
-        };
-        fetchExerciseData();
-    }, []);
-
-
-
+            // Veriyi önbelleğe kaydet
+            setExerciseData(response.data);
+        }
+        catch (error) {
+            console.error('Veri çekme hatası:', error);
+        }
+    };
 
     const handleSearch = (event) => {
         setSearchTerm(event.target.value);
@@ -53,7 +51,6 @@ function NewProgramScreen() {
     const filteredExerciseData = exerciseData.filter((exercise) =>
         exercise.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
-
 
     return (
         <div className='NewProgramScreen'>
@@ -145,7 +142,7 @@ function NewProgramScreen() {
                         <button className='planBtn' type='submit'>Plan</button>
                     </form>
                 </div > {/* BODY */}
-            </div>
+            </div> {/* Create New Program Screen MAIN */}
             {showProgramScreen && (
                 <div className="showProgramScreenContainer">
                     <div className="header">
@@ -202,7 +199,7 @@ function NewProgramScreen() {
                     </div>
                     <ul className="workoutsListContainer">
                         {filteredExerciseData.map((exercise, index) => (
-                            <li className="workoutListElement" id={index} key={index}>
+                            <li onClick={() => { setSelectedExercise(exercise); console.log(1) }} className="workoutListElement kerem" id={index} key={index}>
                                 <div className='imageContainer'>
                                     <img loading='lazy' src={exercise.gifUrl} alt="" />
                                 </div>
@@ -217,8 +214,29 @@ function NewProgramScreen() {
                         ))}
                     </ul>
                 </div>
-            )
-            } {/* showExercisePickScreen */}
+            )} {/* showExercisePickScreen */}
+            <div className='selectedExerciseScreen'>
+                <div className="header">
+                    <button className='mr-auto closeBtn'>
+                        <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
+                    </button>
+                    <div className='mr-auto title'>
+                        <h1 className='font-bold tracking-widest'>Bench Press</h1>
+                        <p className='subtext muscle-target'>Chest</p>
+                    </div>
+                </div>
+                <div className="body">
+                    <div className='exerciseImgContainer'>
+                        <img src={`https://source.unsplash.com/random?collections=10126680&orientation=landscape&width=700&height=200&t=${Math.random()}`} alt="" />
+                    </div>
+                    <div className="setsContainer">
+                        <Set></Set>
+                        <div>
+                            <button onClick={addSet} className='createNewSetsBtn'>Yeni SET</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div >
     )
 }

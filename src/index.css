@@ -4,6 +4,8 @@
 @import 'assets/css/newProgramScreen.css';
 @import 'assets/css/ExercisePickScreen.css';
 @import 'assets/css/ProgramScreen.css';
+@import 'assets/css/selectedExercise.css';
+@import 'assets/css/set.css';
 body {
   margin: 0;
   font-family: -rgb(255 237 213)e-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
