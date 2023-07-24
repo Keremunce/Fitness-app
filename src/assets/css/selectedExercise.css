@@ -21,3 +21,12 @@
     height: 100%;
     object-fit: cover;
 }
+.selectedExerciseScreen .createNewSetsBtn{
+    display: grid ;
+    place-items: center;
+}
+.selectedExerciseScreen .createNewSetsBtn button{
+    border: 1px solid var(--gray-300);
+    padding: .5rem 1.5rem;
+    border-radius: .15rem;
+}

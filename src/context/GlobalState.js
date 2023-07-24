@@ -1,14 +1,16 @@
 import { createContext, useState, useEffect, useRef } from "react";
-
+import { useNavigate } from "react-router-dom";
 export const GlobalContext = createContext();
 
 export const GlobalProvider = (props) => {
+    const appRef = useRef(null);
+
+    const navigate = useNavigate();
 
     const [workouts, setWorkouts] = useState([]);
     const [date, setDate] = useState([]);
     const [today, setToday] = useState(new Date());
     const [selectedItem, setSelectedItem] = useState(null);
-    const [showNewProgramScreen, setshowNewProgramScreen] = useState(false);
     const [workoutDuration, setWorkoutDuration] = useState(true);
     const [workoutDays, setWorkoutDays] = useState('');
     const [workoutDaysPH, setWorkoutDaysPH] = useState(true);
@@ -39,7 +41,6 @@ export const GlobalProvider = (props) => {
 
     const allData = {
         workouts, setWorkouts, date, setDate, today, selectedItem, setSelectedItem,
-        showNewProgramScreen, setshowNewProgramScreen,
         workoutDuration, setWorkoutDuration,
         workoutDays, setWorkoutDays,
         workoutDaysPH, setWorkoutDaysPH,
@@ -53,6 +54,7 @@ export const GlobalProvider = (props) => {
         repCount, setRepCount,
         restTimeCount, setRestTimeCount,
         sets, setSets,
+        appRef, navigate
     };
 
     return (

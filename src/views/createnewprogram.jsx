@@ -1,62 +1,28 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight, faCirclePlus, faSearch } from '@fortawesome/free-solid-svg-icons';
-import Set from './set'
-import axios from 'axios';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import Set from '../components/set'
 function NewProgramScreen() {
-    const { showNewProgramScreen, setshowNewProgramScreen, workoutDuration, setWorkoutDuration, workoutDays, setWorkoutDays, workoutDaysPH, setWorkoutDaysPH
-        , selectedDayIndex, setSelectedDayIndex, showProgramScreen, setShowProgramScreen, showExercisePickScreen, setshowExercisePickScreen,
-        workoutSearchInputRef, exerciseData, setExerciseData, searchTerm, setSearchTerm, selectedExercise, setSelectedExercise,
-     setSets} = useContext(GlobalContext);
-     const addSet = () => {
+
+    const { workoutDuration, setWorkoutDuration, workoutDays, setWorkoutDays, workoutDaysPH, setWorkoutDaysPH
+        ,setSelectedDayIndex,setSets, navigate } = useContext(GlobalContext);
+
+    const addSet = () => {
         setSets((prevSets) => [...prevSets, {}]);
     };
 
     // Kullanıcının günü seçtiğinde çağrılan fonksiyon
     const handleDaySelection = (index) => {
         setSelectedDayIndex(index + 1);
-        setShowProgramScreen(true);
+        navigate('/ShowProgramScreen');
     };
-    // // Kullanıcının programı hazırladıktan sonra çağrılan fonksiyon
-    // const handleProgramSave = () => {
-    //     // Programı kaydet ve işlemleri gerçekleştir
-    //     // ...
-
-    //     // İlk sayfaya geri dön
-    //     setSelectedDayIndex(0);
-    //     setShowProgramScreen(false);
-    // };\
-
-    const fetchExerciseData = async () => {
-        try {                        // Önbellekte veri yok, API'den veriyi çek
-            const response = await axios.get('https://exercisedb.p.rapidapi.com/exercises', {
-                headers: {
-                    'X-RapidAPI-Key': '722895e6a7mshdd582378ce49955p1cb2c6jsnd8470e7d5adb',
-                    'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
-                }
-            });
-
-            // Veriyi önbelleğe kaydet
-            setExerciseData(response.data);
-        }
-        catch (error) {
-            console.error('Veri çekme hatası:', error);
-        }
-    };
-
-    const handleSearch = (event) => {
-        setSearchTerm(event.target.value);
-    };
-    const filteredExerciseData = exerciseData.filter((exercise) =>
-        exercise.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
 
     return (
         <div className='NewProgramScreen'>
             <div>
                 <div className="header">
-                    <button onClick={() => setshowNewProgramScreen(!showNewProgramScreen)} className='mr-auto closeBtn'>
+                    <button onClick={() => navigate(-1)} className='mr-auto closeBtn'>
                         <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
                     </button>
                     <div className='mr-auto title'>
@@ -143,78 +109,6 @@ function NewProgramScreen() {
                     </form>
                 </div > {/* BODY */}
             </div> {/* Create New Program Screen MAIN */}
-            {showProgramScreen && (
-                <div className="showProgramScreenContainer">
-                    <div className="header">
-                        <button onClick={() => setShowProgramScreen(true)} className='mr-auto closeBtn'>
-                            <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
-                        </button>
-                        <div className='mr-auto title'>
-                            <h1 className='font-bold tracking-widest'>{selectedDayIndex}. Gun</h1>
-                        </div>
-                    </div>
-                    {/* Add exercies */}
-                    <div className='textContentContainer'>
-                        <div className='textContent'>
-                            <p>Add Exercise</p>
-                            <p>Add exercises today's program</p>
-                        </div>
-                        <div>
-                            <button onClick={() => setshowExercisePickScreen(true)} className='addExercise' id='addExercise'>Add Exercise</button>
-                        </div>
-                    </div>
-                    {/* Egzersiz Ekle Butonu */}
-                    {/* Program Exercies List */}
-                    {/* <ul className='programExerciesList'>
-                                        <li className='element'>
-                                            <div className='elementImage'>
-                                                <img src="" alt="" />
-                                            </div>
-                                            <div className="elementContent">
-                                                <p className="title">Barbell Bench Press</p>
-                                            </div>
-                                        </li>
-                                    </ul> */}
-                    {/* Planlama Butonu  */}
-                </div>
-            )} {/* showProgramScreenContainer */}
-            {showExercisePickScreen && (
-                <div className="showExercisePickScreenContainer">
-                    <div className="header">
-                        <button onClick={() => setshowExercisePickScreen(true)} className='mr-auto closeBtn'>
-                            <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
-                        </button>
-                        <div className='mr-auto title'>
-                            <h1 className='font-bold tracking-widest'>Exercises</h1>
-                        </div>
-                    </div>
-                    <div className="exercisepickSearchContainer">
-                        <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
-                        <input ref={workoutSearchInputRef} onChange={handleSearch} type="text" className='searchInput' placeholder='Search Exercises...' />
-                    </div>
-                    <div className="muscleCategoriesContainer">
-                        <div className="category">Chest</div>
-                        <div className="category">Back</div>
-                        <div className="category">Shoulder</div>
-                    </div>
-                    <ul className="workoutsListContainer">
-                        {filteredExerciseData.map((exercise, index) => (
-                            <li onClick={() => { setSelectedExercise(exercise); console.log(1) }} className="workoutListElement kerem" id={index} key={index}>
-                                <div className='imageContainer'>
-                                    <img loading='lazy' src={exercise.gifUrl} alt="" />
-                                </div>
-                                <div className="textContent">
-                                    <p>{exercise.name}</p>
-                                    <p>{exercise.target}</p>
-                                </div>
-                                <div className='circlePlusContainer'>
-                                    <FontAwesomeIcon icon={faCirclePlus}></FontAwesomeIcon>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )} {/* showExercisePickScreen */}
             <div className='selectedExerciseScreen'>
                 <div className="header">
                     <button className='mr-auto closeBtn'>
@@ -231,8 +125,8 @@ function NewProgramScreen() {
                     </div>
                     <div className="setsContainer">
                         <Set></Set>
-                        <div>
-                            <button onClick={addSet} className='createNewSetsBtn'>Yeni SET</button>
+                        <div className='createNewSetsBtn'>
+                            <button onClick={addSet}>Yeni SET</button>
                         </div>
                     </div>
                 </div>
